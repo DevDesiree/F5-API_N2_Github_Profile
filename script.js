@@ -19,7 +19,13 @@ async function getUsers() {
 
         let recentRepos = await getRepos(user);
 
-        console.log(name + avatar_url + descripcion + followers + following + repos + recentRepos);
+
+        if (name == null){
+            name = user;
+        }
+        if (descripcion == null){
+            descripcion = "**The user has no description**";
+        }
 
         const contentCard = `
             <div class="card">
